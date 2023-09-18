@@ -31,11 +31,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Boolean insertData(String email, String fullname, String password) {
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
 
-        // Check if the email already exists in the database
+
         Cursor cursor = MyDatabase.rawQuery("SELECT * FROM allusers WHERE email=?", new String[]{email});
         if (cursor.getCount() > 0) {
-            // Email already exists, handle the situation (e.g., display an error message)
-            cursor.close(); // Close the cursor when done
+
+            cursor.close();
             return false;
         } else {
             ContentValues contentValues = new ContentValues();
@@ -46,11 +46,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 long result = MyDatabase.insertOrThrow("allusers", null, contentValues);
                 return result != -1;
             } catch (SQLiteConstraintException e) {
-                // Handle constraint violation (e.g., duplicate email)
+
                 e.printStackTrace();
                 return false;
             } finally {
-                cursor.close(); // Close the cursor when done
+                cursor.close();
             }
         }
     }
@@ -59,7 +59,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase MyDatabase = this.getReadableDatabase();
         Cursor cursor = MyDatabase.rawQuery("SELECT * FROM allusers WHERE email = ?", new String[]{email});
         boolean result = cursor.getCount() > 0;
-        cursor.close(); // Close the cursor when done
+        cursor.close();
         return result;
     }
 
@@ -67,7 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase MyDatabase = this.getReadableDatabase();
         Cursor cursor = MyDatabase.rawQuery("SELECT * FROM allusers WHERE email = ? AND password = ?", new String[]{email, password});
         boolean result = cursor.getCount() > 0;
-        cursor.close(); // Close the cursor when done
+        cursor.close();
         return result;
     }
     public String getFullName(String email, String password) {
