@@ -2,12 +2,23 @@ package com.example.logsignsql;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class CartActivity extends AppCompatActivity {
+
+    private Context context;
+    private DatabaseHelper databaseHelper;
+
+    public CartActivity(Context context, DatabaseHelper databaseHelper) {
+        this.context = context;
+        this.databaseHelper = databaseHelper;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
