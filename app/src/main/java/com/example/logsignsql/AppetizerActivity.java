@@ -1,13 +1,13 @@
 package com.example.logsignsql;
 
 import android.os.Bundle;
-
+import android.view.View;
+import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.logsignsql.adapter.AppetizerCatAdapter;
 import com.example.logsignsql.model.AppetizerCat;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,5 +34,19 @@ public class AppetizerActivity extends AppCompatActivity {
         appetizerRecycler.setLayoutManager(appetizerLayoutManager);
         appetizerCatAdapter = new AppetizerCatAdapter(this, appetizerCats);
         appetizerRecycler.setAdapter(appetizerCatAdapter);
+
+        ImageView backButton = findViewById(R.id.backbutton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

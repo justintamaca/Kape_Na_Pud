@@ -29,7 +29,7 @@ public class AppetizerCatAdapter extends RecyclerView.Adapter<AppetizerCatAdapte
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.category, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.appetizer, parent, false);
         return new CategoryViewHolder(view);
     }
 

@@ -89,9 +89,19 @@ public class MenuActivity extends AppCompatActivity {
                 if ("Appetizer".equals(categoryName)) {
                     startActivity(new Intent(MenuActivity.this, AppetizerActivity.class));
                 } else if ("Pasta".equals(categoryName)) {
-                    // Redirect to PastaActivity or the appropriate activity
+                } else if ("Rice Meal".equals(categoryName)) {
+                    startActivity(new Intent(MenuActivity.this, RiceMealActivity.class));
+                }else if ("Sandwich".equals(categoryName)) {
+                    startActivity((new Intent(MenuActivity.this, SandwichActivity.class)));
+                }else if ("Hot Coffee".equals(categoryName)){
+                    startActivity(new Intent(MenuActivity.this, HotCoffeeActivity.class));
+                }else if ("Iced Coffee".equals(categoryName)){
+                    startActivity(new Intent(MenuActivity.this, IcedCoffeeActivity.class));
+                }else if ("Non-iced Coffee".equals(categoryName)){
+                    startActivity(new Intent(MenuActivity.this, NonicedCoffeeActivity.class));
+                }else if ("Milkshake".equals(categoryName)){
+                    startActivity(new Intent(MenuActivity.this, MilkshakeActivity.class));
                 }
-                // Add more conditions for other categories as needed
             }
         });
     }

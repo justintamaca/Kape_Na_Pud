@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.logsignsql">
 
-
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -17,6 +16,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
+        <activity
+            android:name=".MilkshakeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NonicedCoffeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HotCoffeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IcedCoffeeActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".SandwichActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RiceMealActivity"
+            android:exported="false" />
         <activity
             android:name=".AppetizerActivity"
             android:exported="false" />
