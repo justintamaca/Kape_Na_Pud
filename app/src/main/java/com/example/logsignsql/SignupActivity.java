@@ -6,7 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import com.example.logsignsql.databinding.ActivitySignupBinding;
 
 public class SignupActivity extends AppCompatActivity {
@@ -25,21 +26,34 @@ public class SignupActivity extends AppCompatActivity {
         binding.signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fullname = binding.fullname.getText().toString();
                 String email = binding.email.getText().toString();
                 String password = binding.password.getText().toString();
                 String confirmpassword = binding.confirpassword.getText().toString();
+                String firstname = binding.firstname.getText().toString();
+                String lastname = binding.lastname.getText().toString();
+                String contactNumber = binding.contactnum.getText().toString();
+                String birthday = binding.birthday.getText().toString();
 
-                if (email.isEmpty() || fullname.isEmpty() || password.isEmpty() || confirmpassword.isEmpty()) {
+                RadioGroup genderRadioGroup = binding.genderRadioGroup;
+                int selectedRadioButtonId = genderRadioGroup.getCheckedRadioButtonId();
+                String gender = "";
+
+                if (selectedRadioButtonId != -1) {
+                    RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
+                    gender = selectedRadioButton.getText().toString();
+                }
+
+                if (email.isEmpty()  || password.isEmpty() || confirmpassword.isEmpty() ||
+                        firstname.isEmpty() || lastname.isEmpty() || contactNumber.isEmpty() || gender.isEmpty() || birthday.isEmpty()) {
                     Toast.makeText(SignupActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
                 } else {
                     if (password.equals(confirmpassword)) {
                         // Check if the email already exists
-                        Boolean checkUserEmail = databaseHelper.checkEmail(email);
+                        Boolean insertData = databaseHelper.insertData(email, firstname, lastname, contactNumber, gender, birthday, password);
 
-                        if (!checkUserEmail) {
+                        if (!insertData) {
                             // Email doesn't exist, insert the new user
-                            Boolean insert = databaseHelper.insertData(email, fullname, password);
+                            Boolean insert = databaseHelper.insertData(email, firstname, lastname, contactNumber, gender, birthday, password);
 
                             if (insert) {
                                 Toast.makeText(SignupActivity.this, "Signup Successfully", Toast.LENGTH_SHORT).show();

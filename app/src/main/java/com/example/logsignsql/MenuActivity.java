@@ -89,6 +89,7 @@ public class MenuActivity extends AppCompatActivity {
                 if ("Appetizer".equals(categoryName)) {
                     startActivity(new Intent(MenuActivity.this, AppetizerActivity.class));
                 } else if ("Pasta".equals(categoryName)) {
+                    startActivity(new Intent(MenuActivity.this, PastaActivity.class));
                 } else if ("Rice Meal".equals(categoryName)) {
                     startActivity(new Intent(MenuActivity.this, RiceMealActivity.class));
                 }else if ("Sandwich".equals(categoryName)) {

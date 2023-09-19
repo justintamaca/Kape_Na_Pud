@@ -6,6 +6,6 @@
     <color name="mocha">#3F261D</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
+    <color name="red">#D30000</color>
     <color name="primary">#EDDFCC</color>
 </resources>

@@ -31,8 +31,8 @@ public class MilkshakeActivity extends AppCompatActivity {
 
 
         milkshakeRecycler = findViewById(R.id.milkshake_recyclerview);
-        GridLayoutManager icedcoffeeLayoutManager = new GridLayoutManager(this, 2);
-        milkshakeRecycler.setLayoutManager(icedcoffeeLayoutManager);
+        GridLayoutManager milkshakeLayoutManager = new GridLayoutManager(this, 2);
+        milkshakeRecycler.setLayoutManager(milkshakeLayoutManager);
         milkshakeCatAdapter = new MilkshakeCatAdapter(this, milkshakeCats);
         milkshakeRecycler.setAdapter(milkshakeCatAdapter);
 

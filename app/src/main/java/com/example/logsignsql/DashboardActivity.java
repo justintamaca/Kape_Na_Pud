@@ -15,14 +15,9 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        Intent intent = getIntent();
-        String fullName = intent.getStringExtra("fullName");
-        TextView welcomeTextView = findViewById(R.id.welcomeTextView);
-        if (fullName != null && !fullName.isEmpty()) {
-            String welcomeMessage = "Hello, " + fullName;
-            welcomeTextView.setText(welcomeMessage);
-        }
-
+        String userFirstname = getIntent().getStringExtra("firstname");
+        TextView greetingTextView = findViewById(R.id.welcomeTextView);
+        greetingTextView.setText("Hello, " + userFirstname);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.botNatView);
         bottomNavigationView.setSelectedItemId(R.id.bot_home);

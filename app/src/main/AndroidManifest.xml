@@ -17,6 +17,9 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".PastaActivity"
+            android:exported="false" />
+        <activity
             android:name=".MilkshakeActivity"
             android:exported="false" />
         <activity
@@ -27,7 +30,7 @@
             android:exported="false" />
         <activity
             android:name=".IcedCoffeeActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".SandwichActivity"
             android:exported="false" />

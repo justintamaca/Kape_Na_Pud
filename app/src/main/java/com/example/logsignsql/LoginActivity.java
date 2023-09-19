@@ -28,13 +28,13 @@ public class LoginActivity extends AppCompatActivity {
                 if (email.equals("") || password.equals("")) {
                     Toast.makeText(LoginActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();
                 } else {
-                    String fullName = databaseHelper.getFullName(email, password);
-                    if (fullName != null) {
+                    String firstname = databaseHelper.getUserInfo(email, password);
+                    if (firstname != null) {
                         Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
 
                         // Pass the full name to DashboardActivity after successful login
                         Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                        intent.putExtra("fullName", fullName);
+                        intent.putExtra("firstname", firstname);
                         startActivity(intent);
 
                         finish(); // Finish the LoginActivity so the user can't go back to it without logging out
